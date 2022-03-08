@@ -48,8 +48,9 @@
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control select" name="user_id" data-placeholder="Choose one (with searchbox)">
+                                                <option value="{{$category->user->id}}">{{$category->user->name}}</option>
                                                 @foreach($users as $user)
-                                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                                        <option value="{{$user->id}}">{{$user->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
