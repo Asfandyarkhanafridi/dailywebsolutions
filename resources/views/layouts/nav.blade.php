@@ -49,22 +49,21 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
         <aside class="app-sidebar">
             <div class="panel-body tabs-menu-body side-tab-body p-0 border-0 ">
-                <div class="tab-content">
-                    <div class="tab-pane active " id="index1">
+
+                    <div class="tab-pane " id="index1">
                         <div class="row row-demo-list">
-                            <div id="parentVerticalTab" class="col-md-12">
+                            <div id="parentVerticalTab" class="col-md-12 ">
                                 <ul class="resp-tabs-list hor_1">
                                     <li class="resp-tab-active"><i class="side-menu__icon typcn typcn-device-desktop"></i></li>
                                     <li><i class="side-menu__icon typcn typcn-book"></i></li>
                                     <li><i class="side-menu__icon typcn typcn-briefcase"></i></li>
                                 </ul>
                                 <div class="resp-tabs-container hor_1">
-
                                     <!-- col 1 -->
                                     <div class="resp-tab-content-active">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <h4 class="font-weight-semibold">Home</h4>
+                                                <h4 class="font-weight-semibold ">Home</h4>
                                                 <a class="slide-item" href="{{route('home')}}">Dashboard</a>
                                             </div>
                                         </div>
@@ -73,9 +72,9 @@
 
                                     <!-- Col 2 -->
                                     <div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h4 class="font-weight-semibold">Categories</h4>
+                                        <div class="row ">
+                                            <div class="col-md-12 ">
+                                                <h4 class="font-weight-semibold ">Categories</h4>
                                                 <a href="{{route('category.index')}}" class="slide-item">All Categories</a>
                                                 <a href="{{route('category.create')}}" class="slide-item">Create Category</a>
                                             </div>

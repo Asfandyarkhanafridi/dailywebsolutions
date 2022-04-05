@@ -28,20 +28,8 @@
     <!-- Sidemenu css -->
     <link href="{{asset('assets/plugins/toggle-sidebar/dark-full-sidemenu.css')}}" rel="stylesheet" />
 
-    <!--Daterangepicker css-->
-    <link href="{{asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
-
-    <!-- Rightsidebar css -->
-    <link href="{{asset('assets/plugins/sidebar/dark-sidebar.css')}}" rel="stylesheet">
-
-    <!-- Sidebar Accordions css -->
+     <!-- Sidebar Accordions css -->
     <link href="{{asset('assets/plugins/accordion1/css/dark-easy-responsive-tabs.css')}}" rel="stylesheet">
-
-    <!-- Owl Theme css-->
-    <link href="{{asset('assets/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
-
-    <!-- Morris  Charts css-->
-    <link href="{{asset('assets/plugins/morris/morris.css')}}" rel="stylesheet" />
 
     <!---Font icons css-->
     <link href="{{asset('assets/plugins/iconfonts/plugin.css')}}" rel="stylesheet" />
@@ -51,15 +39,8 @@
     <!-- Data table css -->
     <link href="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/plugins/datatable/responsivebootstrap4.min.css')}}" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" rel="stylesheet" />
 
-    <!--Select2 css -->
-    <link href="{{('assets/plugins/select2/select2.min-dark.css')}}" rel="stylesheet" />
-
-    <!-- Date Picker css-->
-    <link href="{{('assets/plugins/date-picker/spectrum.css')}}" rel="stylesheet" />
-
-
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 </head>
 <body class="@yield('body-class') sb-nav-fixed">
 <div id="global-loader">
@@ -94,24 +75,12 @@
 <!-- Back to top -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-<!-- Jquery js-->
-<script src="{{asset('assets/js-dark/vendors/jquery-3.2.1.min.js')}}"></script>
+<!-- include jQuery library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
 <!--Bootstrap.min js-->
 <script src="{{asset('assets/plugins/bootstrap/popper.min.js')}}"></script>
 <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-
-<!--Jquery Sparkline js-->
-<script src="{{asset('assets/js-dark/vendors/jquery.sparkline.min.js')}}"></script>
-
-<!-- Star Rating js-->
-<script src="{{asset('assets/plugins/rating/jquery.rating-stars.js')}}"></script>
-
-<!--Moment js-->
-<script src="{{asset('assets/plugins/moment/moment.min.js')}}"></script>
-
-<!-- Daterangepicker js-->
-<script src="{{asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 
 <!--Side-menu js-->
 <script src="{{asset('assets/plugins/toggle-sidebar/sidemenu.js')}}"></script>
@@ -122,36 +91,35 @@
 <!-- Custom scroll bar js-->
 <script src="{{asset('assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 
-<!--Owl Carousel js -->
-<script src="{{asset('assets/plugins/owl-carousel/owl.carousel.js')}}"></script>
-<script src="{{asset('assets/plugins/owl-carousel/owl-main.js')}}"></script>
-
-<!-- Rightsidebar js -->
-<script src="{{asset('assets/plugins/sidebar/sidebar.js')}}"></script>
-
 <!-- Data tables js-->
 <script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
 <script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-
-<!--Select2 js -->
-<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-<script src="{{asset('assets/js-dark/select2.js')}}"></script>
-
-<!-- Datepicker js -->
-<script src="{{('assets/plugins/date-picker/spectrum.js')}}"></script>
-<script src="{{('assets/plugins/date-picker/jquery-ui.js')}}"></script>
-<script src="{{('assets/plugins/input-mask/jquery.maskedinput.js')}}"></script>
 
 <!-- Custom js-->
 <script src="{{asset('assets/js-dark/custom.js')}}"></script>
+
+
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script>
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[id="avatar"]');
+
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement);
+
+    FilePond.setOptions({
+        server: {
+            url: '/upload',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        },
+    });
+
+</script>
 
 @yield('more-script')
 

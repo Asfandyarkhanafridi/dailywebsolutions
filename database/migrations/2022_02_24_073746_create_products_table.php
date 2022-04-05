@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id');
             $table->unsignedBigInteger('category_id');
             $table->string('product_name');
+            $table->string('avatar')->nullable();
             $table->dateTime('date_created');
             $table->unsignedBigInteger('user_id');
 

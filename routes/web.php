@@ -12,6 +12,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //category
@@ -19,3 +21,5 @@ Route::resource('category', CategoryController::class);
 
 //product
 Route::resource('product', ProductController::class);
+
+Route::post('upload', [\App\Http\Controllers\UploadController::class, 'store']);

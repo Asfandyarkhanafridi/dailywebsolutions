@@ -33,6 +33,7 @@
                                         <th>Product Name</th>
                                         <th>Date Created</th>
                                         <th>Created By User</th>
+                                        <th>Image</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -43,6 +44,9 @@
                                             <td>{{$product->product_name}}</td>
                                             <td>{{$product->date_created}}</td>
                                             <td>{{$product->user->name}}</td>
+                                            @foreach($files as $file)<td> <img src="storage/app/avatars/tmp/{{$file->filename}}" alt="" title="">
+                                            </td>
+                                            @endforeach
                                             <td>
                                                 <form method="Post" action="{{route('product.destroy',$product->id)}}">
                                                     @csrf

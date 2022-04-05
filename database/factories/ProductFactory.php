@@ -17,10 +17,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'category_id'        => rand(1,20),
-            'product_name'           => $this->faker->name(),
-            'date_created'       => now(),
-            'user_id'   => rand(1,5),
+            'category_id'   => rand(1,20),
+            'product_name'  => $this->faker->name(),
+            'date_created'  => now(),
+            'user_id'       => rand(1,5),
         ];
     }
 }

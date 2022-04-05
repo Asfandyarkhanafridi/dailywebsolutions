@@ -37,7 +37,7 @@
                             @include('message')
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="{{route('product.store')}}">
+                            <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-body">
                                     <div class="col-md-12">
@@ -61,6 +61,9 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <input type="file" name="avatar" id="avatar"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -75,4 +78,7 @@
         </div>
     </div>
     <!-- End Main Content -->
+@endsection
+@section('more-script')
+
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\TemporaryFile;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class ProductController extends Controller
 
     public function index()
     {
+        $files = TemporaryFile::all();
         $products = Product::all();
-        return view('product.index', ['products' => $products]);
+        return view('product.index', ['products' => $products, 'files' => $files]);
     }
 
     public function create()
@@ -25,6 +27,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $temporaryFile = TemporaryFile::where('folder',$request->avatar)->first();
+        if ($temporaryFile)
+        {
+            $request->addMedia(storage_path('app/public/avatars/tmp' . $request->avatar . '/' . $temporaryFile->filename ))
+                ->toMediaCollection('avatars');
+            rmdir(storage_path('app/public/avatars/tmp/'.$request->avatar));
+            $temporaryFile->delete();
+        }
+
         Product::create($request->all());
         return redirect()->back()->with('message', 'Product has been Added successfully');
     }
